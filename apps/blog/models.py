@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Post(models.Model):
     author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
+    title = models.CharField(max_length=200, verbose_name=_("title"), blank=True)
     body = models.CharField(_("body"), max_length=255)
     liked = models.ManyToManyField(User, verbose_name=_("liked"), related_name="liked_posts")
     created = models.DateTimeField(_("created at"), auto_now_add=True)

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "apps.blog",
     # External apps
     "django_extensions",
+    "import_export",
     "rest_framework",
 ]
 
