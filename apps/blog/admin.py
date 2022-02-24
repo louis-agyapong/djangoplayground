@@ -2,16 +2,17 @@ from django.contrib import admin
 from .models import Post, Comment
 from import_export.admin import ExportActionMixin
 from import_export import resources
-
+from import_export.fields import Field
 
 class PostResource(resources.ModelResource):
-    author = resources.Field()
-    liked = resources.Field()
-    created = resources.Field()
+    author = Field()
+    liked = Field()
+    created = Field()
 
     class Meta:
         model = Post
         fields = ("id", "author", "title", "body", "liked", "created")
+        export_order = fields
 
     def dehydrate_author(self, post) -> str:
         return str(post.author.username)
