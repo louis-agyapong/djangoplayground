@@ -10,14 +10,12 @@ class PostResource(resources.ModelResource):
         fields = ("id", "author", "title", "body", "liked", "created")
 
 
+@admin.register(Post)
 class PostAdmin(ExportActionMixin, admin.ModelAdmin):
-    list_display = ("id", "author", "title", "body", "liked", "created")
-    list_display_links = ("id", "author", "title", "body", "liked", "created")
     search_fields = ("author", "title")
     list_filter = ("author", "created")
     list_per_page = 10
     resource_class = PostResource
 
 
-admin.site.register(Post)
 admin.site.register(Comment)
