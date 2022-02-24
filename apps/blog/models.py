@@ -4,4 +4,26 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, verbose_name=_(""), on_delete=models.CASCADE)
+    author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
+    body = models.CharField(_("body"), max_length=255)
+    liked = models.ManyToManyField(User, verbose_name=_("liked"), related_name="liked_posts")
+    created = models.DateTimeField(_("created at"), auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.pk}"
+
+    @property
+    def comments(self):
+        return self.post.all()
+
+    class Meta:
+        verbose_name = _("post")
+        verbose_name_plural = _("posts")
+        ordering = ["-created"]
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, verbose_name=_("post"), on_delete=models.CASCADE)
+    author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
+    body = models.CharField(_("body"), max_length=255)
+    created = models.DateTimeField(_("created"), auto_now_add=True)

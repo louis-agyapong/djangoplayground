@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Local apps
-    "apps.polls",
-    "apps.framework",
+    # "apps.polls",
+    # "apps.framework",
     "apps.blog",
     # External apps
     "django_extensions",
