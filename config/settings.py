@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # Local apps
     "apps.polls",
     "apps.framework",
+    "apps.blog",
     # External apps
     "django_extensions",
     "rest_framework",
