@@ -15,7 +15,7 @@ class Post(models.Model):
 
     @property
     def comments(self):
-        return self.post.all()
+        return self.comment_set.all()
 
     class Meta:
         verbose_name = _("post")
@@ -28,3 +28,6 @@ class Comment(models.Model):
     author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
     body = models.CharField(_("body"), max_length=255)
     created = models.DateTimeField(_("created"), auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.author}'s comment on {self.post}"
