@@ -11,7 +11,7 @@ class Post(models.Model):
     created = models.DateTimeField(_("created at"), auto_now_add=True)
 
     def __str__(self) -> str:
-        return f"{self.pk}"
+        return f"{self.title} by {self.author}"
 
     @property
     def comments(self):
