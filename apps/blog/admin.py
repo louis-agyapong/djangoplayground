@@ -4,10 +4,12 @@ from import_export.admin import ExportActionMixin
 from import_export import resources
 from import_export.fields import Field
 
+
 class PostResource(resources.ModelResource):
     author = Field()
     liked = Field()
     created = Field()
+    comments = Field()
 
     class Meta:
         model = Post
@@ -24,6 +26,11 @@ class PostResource(resources.ModelResource):
 
     def dehydrate_created(self, post) -> str:
         return str(post.created.strftime("%d-%m-%Y"))
+
+    def dehydrate_comments(self, post) -> str:
+        data = [x.body for x in post.comments]
+        comments = ", ".join(data)
+        return str(comments)
 
 
 @admin.register(Post)
