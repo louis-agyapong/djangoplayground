@@ -1,0 +1,590 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock title %}</title>
+    <meta
+      name="description"
+      content="Django Playground is a place to play with Django"
+    />
+
+    <!-- Goole fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <!-- JS -->
+    <script src="{% static 'js/bootstrap.js' %}" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+      <nav class="navbar navbar-expand-md navbar-light py-3" aria-label="Main">
+        <div class="container">
+          <a href="index.html" class="navbar-brand text-dark">
+            <img src="{% static 'img/logo-boost.svg' %}" alt="Boost Theme" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars fa-lg"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar">
+            <div class="navbar-nav mt-3 mt-md-0 ms-auto">
+              <a class="nav-link px-md-3" href="pages.html">Pages</a>
+              <a class="nav-link px-md-3" href="style.html">Style</a>
+              <a class="nav-link px-md-3" href="docs/intro.html">Docs</a>
+            </div>
+            <a
+              class="btn btn-primary btn-sm rounded-pill mt-3 mt-md-0 ms-md-3"
+              href="https://themes.getbootstrap.com/product/boost/"
+              >Buy now</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <div class="container py-5">
+        <div class="row justify-content-lg-between align-items-lg-center">
+          <div class="col-lg text-center text-lg-start">
+            <h1 class="display-4 mb-4">Boost your digital presence</h1>
+            <p class="lead text-secondary">
+              Build an awesome website with a clean and accessible Bootstrap
+              theme.
+            </p>
+            <div class="mx-n2">
+              <a class="btn btn-primary rounded-pill m-2" href="pages.html"
+                >View all pages</a
+              >
+              <a href="docs/intro.html" class="link-cta m-2">Documentation</a>
+            </div>
+          </div>
+          <div class="col-lg">
+            <img
+              src="{% static 'img/revenue.svg' %}"
+              class="img-fluid d-none d-lg-block"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-skew bg-skew-light">
+        <!-- Gallery -->
+        <div class="container py-5">
+          <h2 class="visually-hidden">Pages</h2>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <a href="app.html" class="text-decoration-none">
+                <figure>
+                  <img
+                    src="{% static 'img/app.png' %}"
+                    width="1200"
+                    height="900"
+                    class="img-thumbnail mb-3"
+                    alt="App landing page"
+                  />
+                  <figcaption class="h5 link-dark text-center">App</figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="col-md-6 mb-4">
+              <a href="course.html" class="text-decoration-none">
+                <figure>
+                  <img
+                    src="{% static 'img/course.png' %}"
+                    width="1200"
+                    height="900"
+                    class="img-thumbnail mb-3"
+                    alt="Course landing page"
+                  />
+                  <figcaption class="h5 link-dark text-center">
+                    Course
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="col-md-6 mb-4">
+              <a href="event.html" class="text-decoration-none">
+                <figure>
+                  <img
+                    src="{% static 'img/event.jpg' %}"
+                    width="1200"
+                    height="900"
+                    class="img-thumbnail mb-3"
+                    alt="Event landing page"
+                  />
+                  <figcaption class="h5 link-dark text-center">
+                    Event
+                  </figcaption>
+                </figure>
+              </a>
+            </div>
+            <div class="col-md-6 mb-4">
+              <a href="saas.html" class="text-decoration-none">
+                <figure>
+                  <img
+                    src="{% static 'img/saas.png' %}"
+                    width="1200"
+                    height="900"
+                    class="img-thumbnail mb-3"
+                    alt="Saas landing page"
+                  />
+                  <figcaption class="h5 link-dark text-center">SaaS</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+          <div class="text-center pt-4">
+            <a href="pages.html" class="btn btn-primary rounded-pill"
+              >View all pages</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- end bg-skew -->
+
+      <!-- Icon blocks -->
+      <div class="container py-5">
+        <h2 class="visually-hidden">Features</h2>
+        <div class="row g-5">
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i
+                class="icon-inner fas fa-universal-access"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <h3 class="h4">Accessible</h3>
+            <p class="mb-0">
+              Built with accessibility in mind and following best practices.
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i class="icon-inner fas fa-mobile-alt" aria-hidden="true"></i>
+            </span>
+            <h3 class="h4">Mobile First</h3>
+            <p class="mb-0">
+              Mobile-first flexbox grid to build layouts of all shapes and
+              sizes.
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i
+                class="icon-inner fab fa-font-awesome-flag"
+                aria-hidden="true"
+              ></i>
+            </span>
+            <h3 class="h4">Font Awesome</h3>
+            <p class="mb-0">
+              More than 1600 vector icons from the web's most popular icon set.
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i class="icon-inner fab fa-sass" aria-hidden="true"></i>
+            </span>
+            <h3 class="h4">Sass Files</h3>
+            <p class="mb-0">
+              Easily customize your site by modifying the source scss files.
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i class="icon-inner fab fa-npm" aria-hidden="true"></i>
+            </span>
+            <h3 class="h4">Npm</h3>
+            <p class="mb-0">Automated workflow for your development tasks.</p>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <span class="icon icon-primary mb-3">
+              <i class="icon-inner fas fa-code" aria-hidden="true"></i>
+            </span>
+            <h3 class="h4">Valid Code</h3>
+            <p class="mb-0">
+              W3C valid code to ensure the site works properly on all browsers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider mx-auto"></div>
+
+      <!-- Features -->
+      <div class="container py-5">
+        <div class="row justify-content-between align-items-center g-4 mb-5">
+          <div class="col-md-5">
+            <h2>Accessibility-ready</h2>
+            <p>
+              Boost theme is navigable with keyboard, ready for screen readers
+              and uses a high color contrast ratio.
+            </p>
+            <a class="link-cta" href="docs/accessibility.html"
+              >Read More
+              <span class="visually-hidden">about accessibility</span></a
+            >
+          </div>
+          <div class="col-md-6">
+            <img
+              src="{% static 'img/vitruvian-man.png' %}"
+              width="800"
+              height="535"
+              class="img-thumbnail"
+              alt="The Vitruvian Man drawing"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-between align-items-center g-4 mb-5">
+          <div class="col-md-5 order-md-2">
+            <h2>Easy to install</h2>
+            <p>You can install this theme easily using Node Package Manager.</p>
+            <a class="link-cta" href="docs/intro.html"
+              >Read More
+              <span class="visually-hidden">about theme customization</span></a
+            >
+          </div>
+          <div class="col-md-6 order-md-1">
+            <img
+              src="{% static 'img/install.png' %}"
+              width="800"
+              height="535"
+              class="img-thumbnail"
+              alt="Command line with workflow tasks."
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-skew bg-skew-light">
+        <!-- Pricing cards -->
+        <div class="container py-5">
+          <h2 class="text-center mb-5">
+            Choose the license that suits your needs
+          </h2>
+          <div class="row">
+            <div class="col-md">
+              <div class="card text-center mb-4">
+                <div class="card-header border-bottom py-4">
+                  <h3 class="h4 fw-normal">Standard</h3>
+                  <div class="d-flex justify-content-center">
+                    <span class="fs-4 mt-1">$</span>
+                    <span class="h1">49</span>
+                  </div>
+                  <span class="text-secondary">Single Site</span>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled fw-light">
+                    <li class="py-2">Use on one site</li>
+                    <li class="py-2">Use for personal or a client</li>
+                    <li class="py-2">Technical support</li>
+                  </ul>
+                  <a
+                    class="btn btn-outline-primary rounded-pill mb-3"
+                    href="https://themes.getbootstrap.com/product/boost/"
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div
+                class="
+                  card
+                  border border-4 border-primary
+                  shadow
+                  text-center
+                  mb-4
+                "
+              >
+                <div class="card-header border-bottom py-4">
+                  <h3 class="h4 fw-normal">Multisite</h3>
+                  <div class="d-flex justify-content-center">
+                    <span class="fs-4 mt-1">$</span>
+                    <span class="h1">149</span>
+                  </div>
+                  <span class="text-secondary">Unlimited Sites</span>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled fw-light">
+                    <li class="py-2">Use on unlimited sites</li>
+                    <li class="py-2">Use for personal or a client</li>
+                    <li class="py-2">Technical support</li>
+                  </ul>
+                  <a
+                    class="btn btn-primary rounded-pill mb-3"
+                    href="https://themes.getbootstrap.com/product/boost/"
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card text-center mb-4">
+                <div class="card-header border-bottom py-4">
+                  <h3 class="h4 fw-normal">Extended</h3>
+                  <div class="d-flex justify-content-center">
+                    <span class="fs-4 mt-1">$</span>
+                    <span class="h1">490</span>
+                  </div>
+                  <span class="text-secondary">For paying users</span>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled fw-light">
+                    <li class="py-2">Use on one site</li>
+                    <li class="py-2">Paying users allowed</li>
+                    <li class="py-2">Technical support</li>
+                  </ul>
+                  <a
+                    class="btn btn-outline-primary rounded-pill mb-3"
+                    href="https://themes.getbootstrap.com/product/boost/"
+                    >Buy Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider mx-auto"></div>
+
+        <!-- Accordion -->
+        <div class="container py-5">
+          <h2 class="text-center mb-5">Questions</h2>
+          <div class="row justify-content-center">
+            <div class="col-lg-9 col-xxl-8">
+              <div class="accordion" id="accordionFaq">
+                <div class="accordion-item shadow mb-2">
+                  <h3 class="accordion-header" id="headingTwo">
+                    <button
+                      class="accordion-button collapsed fs-4 fw-bold"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="collapseTwo"
+                    >
+                      Do I need to know how to code to use this theme?
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionFaq"
+                  >
+                    <div class="accordion-body">
+                      Yes, you should have some familiarity with HTML and CSS.
+                      And to use the development tools, you need basic knowledge
+                      of the terminal/command line.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item shadow mb-2">
+                  <h3 class="accordion-header" id="headingOne">
+                    <button
+                      class="accordion-button collapsed fs-4 fw-bold"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="false"
+                      aria-controls="collapseOne"
+                    >
+                      Can I use this theme for my clients?
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionFaq"
+                  >
+                    <div class="accordion-body">
+                      Yes, the Bootstrap Themes license allows you to use the
+                      product for personal or for a client.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item shadow mb-2">
+                  <h3 class="accordion-header" id="headingThree">
+                    <button
+                      class="accordion-button collapsed fs-4 fw-bold"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                      aria-expanded="false"
+                      aria-controls="collapseThree"
+                    >
+                      How do I get help with the theme?
+                      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="headingThree"
+                    data-bs-parent="#accordionFaq"
+                  >
+                    <div class="accordion-body">
+                      Support for the theme is given for 6 months after you
+                      purchase the theme and is specific to questions around
+                      functionality, bugs, and basic implementation.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end bg-skew -->
+    </main>
+    
+    <footer class="bg-white pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-3">
+            <h2 class="h5">Boost Theme</h2>
+            <p class="fw-light">
+              Boost is a responsive theme based on Bootstrap 5.
+            </p>
+          </div>
+          <div class="col-6 col-md-3 offset-lg-1 col-lg-2">
+            <h2 class="h5">About</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none">Team</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h2 class="h5">Services</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Design</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Themes</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Branding</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h2 class="h5">Help</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none">FAQ</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none">Docs</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Tutorials</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h2 class="h5">Contact</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none"
+                  >Email</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="link-secondary text-decoration-none">Chat</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="
+            d-flex
+            flex-column flex-sm-row
+            justify-content-sm-between
+            align-items-center
+            border-top
+            pt-3
+          "
+        >
+          <div class="small mb-3">
+            &copy; Made by
+            <a href="https://11bits.es/" target="_blank" rel="noopener"
+              >11bits</a
+            >
+          </div>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <a class="icon icon-sm icon-secondary" href="#"
+                ><i class="icon-inner fab fa-twitter" aria-hidden="true"></i
+                ><span class="sr-only">Twitter</span></a
+              >
+            </li>
+            <li class="list-inline-item">
+              <a class="icon icon-sm icon-secondary" href="#"
+                ><i class="icon-inner fab fa-facebook-f" aria-hidden="true"></i
+                ><span class="sr-only">Facebook</span></a
+              >
+            </li>
+            <li class="list-inline-item">
+              <a class="icon icon-sm icon-secondary" href="#"
+                ><i class="icon-inner fab fa-linkedin-in" aria-hidden="true"></i
+                ><span class="sr-only">Linkedin</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
