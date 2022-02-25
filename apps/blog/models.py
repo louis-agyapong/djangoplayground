@@ -1,14 +1,23 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
+    class StatusChoices(models.TextChoices):
+        draft = "draft", _("Draft")
+        published = "published", _("Published")
+
     title = models.CharField(max_length=200, verbose_name=_("title"), blank=True)
+    slug = models.SlugField(_("slug"), max_length=255, unique_for_date="publish")
+    author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE, related_name="blog_posts")
     body = models.TextField(_("body"))
     liked = models.ManyToManyField(User, verbose_name=_("liked"), related_name="liked_posts", blank=True)
+    publish = models.DateTimeField(_("publish"), default=timezone.now)
     created = models.DateTimeField(_("created at"), auto_now_add=True)
+    updated = models.DateTimeField(_("updated at"), auto_now=True)
+    status = models.CharField(_(""), max_length=9, choices=StatusChoices.choices, default=StatusChoices.draft)
 
     def __str__(self) -> str:
         return f"{self.title} by {self.author}"
@@ -20,7 +29,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = _("post")
         verbose_name_plural = _("posts")
-        ordering = ["-created"]
+        ordering = ["-publish"]
 
 
 class Comment(models.Model):
