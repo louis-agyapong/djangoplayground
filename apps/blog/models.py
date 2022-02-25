@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from django.utils import timezone
 
 
@@ -19,12 +19,12 @@ class Post(models.Model):
     updated = models.DateTimeField(_("updated at"), auto_now=True)
     status = models.CharField(_(""), max_length=9, choices=StatusChoices.choices, default=StatusChoices.draft)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.title} by {self.author}"
 
     @property
     def comments(self):
-        return self.comment_set.all()
+        return self.comments.all()
 
     class Meta:
         verbose_name = _("post")
@@ -33,10 +33,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, verbose_name=_("post"), on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, verbose_name=_("post"), on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE)
     body = models.CharField(_("body"), max_length=255)
     created = models.DateTimeField(_("created"), auto_now_add=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.author}'s comment on {self.post}"
