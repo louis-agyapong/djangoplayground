@@ -13,6 +13,7 @@ class Post(models.Model):
     slug = models.SlugField(_("slug"), max_length=255, unique_for_date="publish")
     author = models.ForeignKey(User, verbose_name=_("author"), on_delete=models.CASCADE, related_name="blog_posts")
     body = models.TextField(_("body"))
+    photo = models.ImageField(_("photo"), upload_to="blogs", blank=True, null=True)
     liked = models.ManyToManyField(User, verbose_name=_("liked"), related_name="liked_posts", blank=True)
     publish = models.DateTimeField(_("publish"), default=timezone.now)
     created = models.DateTimeField(_("created at"), auto_now_add=True)
