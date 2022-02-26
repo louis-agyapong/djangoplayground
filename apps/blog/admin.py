@@ -35,8 +35,12 @@ class PostResource(resources.ModelResource):
 
 @admin.register(Post)
 class PostAdmin(ExportActionMixin, admin.ModelAdmin):
-    search_fields = ("author", "title")
-    list_filter = ("author", "created")
+    list_display = ("title", "slug", "author", "publish", "status")
+    search_fields = ("title", "body")
+    list_filter = ("author", "created", "publish", "status")
+    prepopulated_fields = {"slug": ("title",)}
+    date_hierarchy = "publish"
+    ordering = ["status", "publish"]
     list_per_page = 10
     resource_class = PostResource
 
