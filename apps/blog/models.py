@@ -4,6 +4,11 @@ from django.utils.translation import gettext as _
 from django.utils import timezone
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status="published")
+
+
 class Post(models.Model):
     class StatusChoices(models.TextChoices):
         draft = "draft", _("Draft")
@@ -19,6 +24,9 @@ class Post(models.Model):
     created = models.DateTimeField(_("created at"), auto_now_add=True)
     updated = models.DateTimeField(_("updated at"), auto_now=True)
     status = models.CharField(_(""), max_length=9, choices=StatusChoices.choices, default=StatusChoices.draft)
+
+    objects = models.Manager()
+    published = PublishedManager()
 
     def __str__(self):
         return f"{self.title} by {self.author}"
