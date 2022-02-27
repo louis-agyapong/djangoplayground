@@ -15,11 +15,14 @@ DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
+INTERNAL_IPS = config("ALLOWED_HOSTS", cast=Csv())
+
 
 # Application definition
 
 INSTALLED_APPS = [
     # External apps that go before Django's
+    "debug_toolbar",
     # Django modules
     "django.contrib.admin",
     "django.contrib.auth",
@@ -45,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"

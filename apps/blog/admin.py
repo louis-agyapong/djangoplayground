@@ -41,6 +41,7 @@ class PostAdmin(ExportActionMixin, admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     date_hierarchy = "publish"
     ordering = ["status", "publish"]
+    raw_id_fields = ("author",)
     list_per_page = 10
     resource_class = PostResource
 
