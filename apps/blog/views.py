@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import Post
 
 
-def index(request) -> render:
-    return render(request, "blog/index.html")
+def post_list(request) -> render:
+    posts = Post.published.all()
+    return render(request, "blog/index.html", {"posts": posts})
