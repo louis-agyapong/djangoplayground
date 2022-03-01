@@ -26,21 +26,21 @@
                         src="{{post.photo.url}}"
                         width="1000"
                         height="500"
-                        alt=""
+                        alt="{{post.title}}"
                         aria-hidden="true"
                         />
                         <div class="card-body p-4 p-xl-5 text-center">
                         <h2 class="card-title mb-4">
                             <a
                             class="stretched-link text-decoration-none"
-                            href=""
+                            href="{% url "blog:post_detail" post.publish.year post.publish.month post.publish.day post.slug %}"
                             >{{post.title}}</a>
                         </h2>
                         <div class="small mb-4">
                             <span class="fw-light">published on</span> {{post.publish|date:"M d, Y"}}
                         </div>
                         <p class="card-text text-black">
-                            {{post.body|truncatewords:20}}
+                            {{post.body|truncatewords:30|linebreaks}}
                         </p>
                         </div>
                     </div>

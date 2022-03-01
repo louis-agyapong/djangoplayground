@@ -1,13 +1,208 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block header %}
   {% include 'blog/includes/header.html' %}
 {% endblock header %}
 
 {% block content %}
+  <div class="container">
+    <div class="row justify-content-center text-center my-5">
+      <div class="col-lg-10">
+        <img
+          src="{{post.photo.url}}"
+          width="1000"
+          height="500"
+          class="img-thumbnail"
+          alt="{{post.title}}"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-skew bg-skew-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <article class="pb-2">
+            <h1 class="text-center">
+              {{post.title}}
+            </h1>
+            <div class="small text-center mb-5">
+              <span class="fw-light">published on </span>{{post.publish|date:"M d, Y"}}
+            </div>
+            <p class="lead">
+              {{post.body}}
+            </p>
+            <div class="small py-2">
+              <span class="fw-light">Tagged: </span
+              ><a href="#" class="link-dark">Design</a>
+            </div>
+
+            <!-- Article author -->
+            <div class="d-flex align-items-center py-5">
+              <div class="flex-shrink-0">
+                <img
+                  class="avatar avatar-lg"
+                  src="{% static 'img/py.jpg' %}"
+                  alt="{{post.author.username}}"
+                />
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <h3 class="h5 mb-2">{{post.author.username|title}}</h3>
+              </div>
+            </div>
+          </article>
+
+          <div class="divider mx-auto"></div>
+
+          <!-- Comments -->
+          <div class="py-5">
+            <h2 class="h4 mb-4">3 Comments</h2>
+            <div class="mb-4">
+              <div class="d-flex mb-2">
+                <div class="flex-shrink-0">
+                  <img
+                    class="avatar avatar-md mb-3"
+                    src="assets/img/renee-sims.jpg"
+                    alt="Author avatar"
+                  />
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <span class="d-block fw-bold">Name</span>
+                  <time
+                    class="d-block mb-2 small text-muted"
+                    datetime="2020-01-21T00:00:00+00:00"
+                    >Jan 21, 2020</time
+                  >
+                  <p class="fw-light">
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                    metus scelerisque ante sollicitudin. Cras purus odio,
+                    vestibulum in vulputate at, tempus viverra turpis.
+                  </p>
+                  <div class="text-end">
+                    <a
+                      href="#"
+                      class="btn btn-outline-dark btn-sm rounded-pill"
+                      >Reply</a
+                    >
+                  </div>
+                  <div class="d-flex mt-4">
+                    <div class="flex-shrink-0">
+                      <img
+                        class="avatar avatar-md mb-3"
+                        src="assets/img/leo-gill.jpg"
+                        alt="Author avatar"
+                      />
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <span class="d-block fw-bold">Name</span>
+                      <time
+                        class="d-block mb-2 small text-muted"
+                        datetime="2020-01-21T00:00:00+00:00"
+                        >Jan 21, 2020</time
+                      >
+                      <div class="fw-light">
+                        <p>
+                          Cras purus odio, vestibulum in vulputate at,
+                          tempus viverra turpis. Fusce condimentum nunc ac
+                          nisi vulputate fringilla. Donec lacinia congue
+                          felis in faucibus.
+                        </p>
+                      </div>
+                      <div class="text-end">
+                        <a
+                          href="#"
+                          class="btn btn-outline-dark btn-sm rounded-pill"
+                          >Reply</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="flex-shrink-0">
+                  <img
+                    class="avatar avatar-md mb-3"
+                    src="assets/img/dallas-kwok.jpg"
+                    alt="Author avatar"
+                  />
+                </div>
+                <div class="lex-grow-1 ms-3">
+                  <span class="d-block fw-bold">Name</span>
+                  <time
+                    class="d-block mb-2 small text-muted"
+                    datetime="2020-01-21T00:00:00+00:00"
+                    >Jan 21, 2020</time
+                  >
+                  <div class="fw-light">
+                    <p>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel
+                      metus scelerisque ante sollicitudin. Cras purus odio,
+                      vestibulum in vulputate at, tempus viverra turpis.
+                      Fusce condimentum nunc ac nisi vulputate fringilla.
+                      Donec lacinia congue felis in faucibus.
+                    </p>
+                  </div>
+                  <div class="text-end">
+                    <a
+                      href="#"
+                      class="btn btn-outline-dark btn-sm rounded-pill"
+                      >Reply</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="h4 mb-4">Post a comment</h2>
+            <form>
+              <div class="mb-4">
+                <label for="comment" class="form-label small text-uppercase"
+                  >Comment</label
+                >
+                <textarea
+                  id="comment"
+                  class="form-control"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="row">
+                <div class="mb-4 col-md">
+                  <label for="name" class="form-label small text-uppercase"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="mb-4 col-md">
+                  <label for="email" class="form-label small text-uppercase"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary rounded-pill">
+                Post comment
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
 
 {% endblock content %}
-{{block.title}}
 {% block footer %}
   {% include 'blog/includes/footer.html' %}
 {% endblock footer %}
