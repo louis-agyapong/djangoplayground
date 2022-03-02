@@ -7,18 +7,26 @@ def post_list(request) -> render:
     objects_list = Post.published.all()
     # 3 post in each page
     paginator = Paginator(objects_list, 3)
-    page = request.GET.get("page")
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     try:
-        posts = paginator.page(page)
+        posts = page_obj.object_list
     except PageNotAnInteger:
         # If page is not an integer deliver the first page
-        posts = paginator.page(1)
+        posts = page_obj.paginator.page(1)
     except EmptyPage:
         # If page is out of range deliver last page of results
-        posts = paginator.page(paginator.num_pages)
+        posts = page_obj.paginator.num_pages
 
-    posts = Post.published.all()
-    return render(request, "blog/post_list.html", {"posts": posts, "page": page})
+    return render(
+        request,
+        "blog/post_list.html",
+        {
+            "posts": posts,
+            "paginator": paginator,
+            "page_number": int(page_number),
+        },
+    )
 
 
 def post_detail(request, year, month, day, post):
