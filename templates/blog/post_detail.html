@@ -44,27 +44,26 @@
               <div class="flex-shrink-0">
                 <img
                   class="avatar avatar-lg"
-                  src="{% static 'img/py.jpg' %}"
+                  src="{% static 'img/avatar.png' %}"
                   alt="{{post.author.username}}"
                 />
               </div>
               <div class="flex-grow-1 ms-3">
-                <h3 class="h5 mb-2">{{post.author.username|title}}</h3>
+                <h3 class="h5 mb-2">By {{post.author.username|title}}</h3>
               </div>
             </div>
           </article>
 
-          <div class="divider mx-auto"></div>
 
           <!-- Comments -->
-          <div class="py-5">
+          <div class="py-2">
             <h2 class="h4 mb-4">3 Comments</h2>
             <div class="mb-4">
               <div class="d-flex mb-2">
                 <div class="flex-shrink-0">
                   <img
                     class="avatar avatar-md mb-3"
-                    src="assets/img/renee-sims.jpg"
+                    src="{% static 'img/avatar.png' %}"
                     alt="Author avatar"
                   />
                 </div>
