@@ -8,15 +8,15 @@ def post_list(request) -> render:
     # 3 post in each page
     paginator = Paginator(objects_list, 3)
     page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+
     try:
-        posts = page_obj.object_list
+        posts = paginator.get_page(page_number)
     except PageNotAnInteger:
         # If page is not an integer deliver the first page
-        posts = page_obj.paginator.page(1)
+        posts = paginator.get_page(1)
     except EmptyPage:
         # If page is out of range deliver last page of results
-        posts = page_obj.paginator.num_pages
+        posts = paginator.get_page(paginator.num_pages)
 
     return render(
         request,
@@ -24,7 +24,7 @@ def post_list(request) -> render:
         {
             "posts": posts,
             "paginator": paginator,
-            "page_number": int(page_number),
+            "page_number": page_number,
         },
     )
 
