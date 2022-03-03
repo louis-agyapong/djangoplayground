@@ -7,7 +7,7 @@ def post_list(request) -> render:
     objects_list = Post.published.all()
     # 3 post in each page
     paginator = Paginator(objects_list, 3)
-    page_number = request.GET.get("page")
+    page_number = request.GET.get("page", 1)
 
     try:
         posts = paginator.get_page(page_number)
