@@ -15,6 +15,12 @@ class Question(models.Model):
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
+    class Meta:
+        verbose_name = _("Question")
+        verbose_name_plural = _("Questions")
+        ordering = ["-pub_date"]
+        app_label = "polls"
+
 
 class Choice(models.Model):
     question = models.ForeignKey(
@@ -29,3 +35,5 @@ class Choice(models.Model):
     class Meta:
         verbose_name = _("Choice")
         verbose_name_plural = _("Choices")
+        ordering = ["-votes"]
+        app_label = "polls"
