@@ -31,10 +31,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Local apps
-    # "apps.polls",
     # "apps.framework",
     "apps.blog",
     "apps.polls",
+    "apps.djangosessionsexample",
     # External apps
     "django_extensions",
     "import_export",
