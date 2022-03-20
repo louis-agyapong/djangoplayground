@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     # "apps.framework",
     "apps.blog",
     "apps.polls",
-    "apps.djangosessionsexample",
+    "apps.sessions_example",
     # External apps
     "django_extensions",
     "import_export",
