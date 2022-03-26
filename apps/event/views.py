@@ -3,4 +3,5 @@ from .models import Event
 
 
 def event_detail(request, pk):
-    return render(request, "event/event_detail.html", {"event_detail": get_object_or_404(Event, pk=pk)})
+    context = {"event": get_object_or_404(Event, pk=pk)}
+    return render(request, "event/event_detail.html", context)
