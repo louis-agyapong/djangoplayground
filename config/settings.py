@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "apps.blog",
     "apps.polls",
     "apps.sessions_example",
+    "apps.event",
     # External apps
     "django_extensions",
     "import_export",
