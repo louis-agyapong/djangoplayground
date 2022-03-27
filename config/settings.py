@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # External apps
     "django_extensions",
     "import_export",
+    "taggit",
     "rest_framework",
 ]
 
